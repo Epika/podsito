@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../podsito.ico">
+     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+     <meta http-equiv="Pragma" content="no-cache">
+    <title>PODSITO </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <style>
+    .counter-container {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.counter-container h5 {
+    color: #666;
+    font-weight: 100;
+}
+    
+    .bulb-container {
+        position: center;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        opacity: 2;
+      
+    .bulb-img {
+    width: 120px;
+    height: 155px;
+    filter: drop-shadow(0 0 10px #FBC02D);
+    /* Optimizar rendimiento de animación */
+    
+}
+    @keyframes bounceBulb {
+        0% {
+            opacity: 0;
+            transform: translateX(100vw);
+        }
+        40% {
+            opacity: 1;
+            transform: translateX(10vw) translateY(-50px);
+        }
+        60% {
+            transform: translateX(0) translateY(0);
+        }
+        75% {
+            transform: translateX(0) translateY(-25px);
+        }
+        85% {
+            transform: translateX(0) translateY(0);
+        }
+        92% {
+            transform: translateX(0) translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+    }
+</style>
+    
+    <style>
+    body {
+        background: linear-gradient(105deg, #f3e5f5 20%, #ffffff 80%);
+        min-height: 100vh;
+    }
+       
+        .btn-large {
+    margin: 15px 25px;  /* 15px vertical, 25px horizontal */
+    min-width: 200px;
+    box-shadow: 0 17px 9px rgba(0,0,0,0.3);
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-large {
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+        box-shadow: 0 7px 6px rgba(0,0,0,0.3);
+    }
+}
+      
+        
+        .registered {
+    font-size: 0.3em;
+    vertical-align: super;
+    margin-left: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+    .registered {
+        font-size: 0.4em;
+    }
+}
+    </style>
+
+</head>
+<body>
+    <center>
+    <div class="container">
+        <h1 class="header center">PODSITO<sup class="registered">®</sup></h1>
+        
+        Esta App esta en desarrollo si quiere ver novedades refresque su cache de navegador (Presione F5) cada ves que ingrese a la misma...garcias
+        <h4>Podcasts de electricidad y automatización</h4>
+        <div class="counter-container center-align">
+    <h5>Nuestra base de conocimiento ya cuenta con  <span id="fileCounter"><b>0</b></span> archivos disponibles</h5>
+</div>
+       <div class="row center" style="margin-top: 20px;">
+          
+    <a href="pages/novedades.html" class="btn-large waves-effect waves-light red">Novedades Técnicas</a>
+    <a href="pages/electricidad.html" class="btn-large waves-effect waves-light yellow darken-2">Electricidad Gral.</a>
+    <a href="pages/seguridad.html" class="btn-large waves-effect waves-light green">Seguridad Eléctrica</a>
+    <a href="pages/productos.html" class="btn-large waves-effect waves-light purple">Productos</a>
+    <a href="pages/descargas.html" class="btn-large waves-effect waves-light orange">Descargas PDF</a>
+    
+</div>
+
+    <!----<div class="admin-panel">
+        <button onclick="showLoginModal()" class="btn-floating btn-large waves-effect waves-light grey">
+            <i class="material-icons">admin_panel_settings</i>
+        </button>
+    </div>
+
+    <!-- Login Modal -->
+   
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h4>Admin Login</h4>
+            <div class="input-field">
+                <input type="password" id="adminPassword" />
+                <label for="adminPassword">Contraseña</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close waves-effect waves-light btn" onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        const ADMIN_PASSWORD = 'ASDasd457!';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            M.Modal.init(elems);
+        });
+
+        function showLoginModal() {
+            const modal = M.Modal.getInstance(document.getElementById('loginModal'));
+            modal.open();
+        }
+
+        function login() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                sessionStorage.setItem('isAdmin', 'true');
+                M.toast({html: 'Login exitoso'});
+            } else {
+                M.toast({html: 'Contraseña incorrecta'});
+            }
+        }
+    </script>
+    
+    
+    <div class="bulb-container">
+        <img src="images/foco.png" class="bulb-img" alt="Light Bulb">
+    </div>
+    <div class="container">
+    <!-- ... formulario existente ... -->
+    <div id="audioList" class="section">
+        <!-- Aquí aparecerán los reproductores de audio -->
+    </div>
+</div>
+<script>
+    async function updateCounter() {
+        try {
+            const response = await fetch('get-total.php');
+            const data = await response.json();
+            document.getElementById('fileCounter').textContent = data.total;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', updateCounter);
+</script>
+</body>
+</html>
