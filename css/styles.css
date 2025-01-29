@@ -1,0 +1,79 @@
+:root {
+  --primary-color: #2962ff;
+  --secondary-color: #0039cb;
+  --success-color: #43a047;
+  --background: #fff;
+  --card-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+body {
+  background: var(--background);
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-large {
+    margin: 15px 25px;  /* 15px vertical, 25px horizontal */
+    min-width: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-large {
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+    }
+}
+
+
+.container {
+  padding: 2rem;
+  max-width: 610px;
+}
+
+.card {
+  background: #1F1F1F;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+  margin: 1rem 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+audio {
+  width: 80%;
+  height: 40px;
+  margin-top: 1rem;
+}
+
+.file-field .btn {
+  background: var(--primary-color);
+  border-radius: 25px;
+  box-shadow: var(--card-shadow);
+  transition: background 0.3s ease;
+}
+
+.file-field .btn:hover {
+  background: var(--secondary-color);
+}
+
+.file-path-wrapper {
+  padding: 0 1rem;
+}
+
+.file-path {
+  border-radius: 25px !important;
+  padding: 0 1rem !important;
+}
+
+h3 {
+  color: var(--primary-color);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}

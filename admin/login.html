@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+         <center>
+    <div class="container">
+        <h1 class="header center">PODSITO<sup class="registered">®</sup></h1>
+        </div>
+        
+        <h4>POD´s de electricidad y automatización</h4>
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Acceso Administrador</span>
+                        <form id="loginForm">
+                            <div class="input-field">
+                                <input type="text" id="username" required>
+                                <label for="username">Usuario</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" id="password" required>
+                                <label for="password">Contraseña</label>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit">
+                                Ingresar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('check-login.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const result = await response.json();
+                console.log('Login result:', result); // Debug
+
+                if (result.success) {
+                    window.location.href = 'dashboard.php';
+                } else {
+                    M.toast({html: 'Usuario o contraseña incorrectos', classes: 'red'});
+                }
+            } catch (error) {
+                console.error('Error:', error); // Debug
+                M.toast({html: 'Error de conexión', classes: 'red'});
+            }
+        });
+    </script>
+</body>
+</html>
