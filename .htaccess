@@ -1,0 +1,9 @@
+<IfModule mod_php.ini>
+    php_value upload_max_filesize 20M
+    php_value post_max_size 20M
+</IfModule>
+
+<Directory "uploads/audio">
+    Options -Indexes
+    Allow from all
+</Directory>
